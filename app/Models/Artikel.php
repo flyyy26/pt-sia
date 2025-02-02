@@ -14,7 +14,7 @@ class Artikel extends Model
 
     protected $table = 'artikels';
 
-    protected $fillable = ['title', 'slug', 'image', 'description', 'kategori_id', 'tags'];
+    protected $fillable = ['title', 'slug', 'image', 'description', 'kategori_id', 'tags', 'status'];
 
     public function author(): BelongsTo
     {

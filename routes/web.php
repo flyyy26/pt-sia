@@ -1,18 +1,14 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+// Route Index Artikel
+Route::get('/news-articles', [ArtikelController::class, 'index'])->name('news-articles.index');
+
+// Route Detail Artikel (menggunakan slug)
+Route::get('/news-articles/{artikel:slug}', [ArtikelController::class, 'show'])->name('news-articles.show');

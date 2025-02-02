@@ -7,13 +7,15 @@ use Filament\Tables;
 use App\Models\Banner;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Forms\Components\Select;
 use Tables\Columns\TextColumn;
 use Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Tables\Columns\ImageColumn;
 use Filament\Resources\Resource;
 use Forms\Components\FileUpload;
+use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\Textarea;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BannerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -49,12 +51,20 @@ class BannerResource extends Resource
                         ->label('Banner Image')
                         ->hidden(fn (callable $get) => $get('creation_method') !== 'form'),
                 ]),
-    
+
+        
             // Conditionally show these fields if "Form" is selected
             Forms\Components\Grid::make(2)
                 ->schema([
                     Forms\Components\TextInput::make('title')->required()->label('Title')->default('Default Title'),
                     Forms\Components\TextInput::make('link')->label('Link')->default('Default Link'),
+                    Forms\Components\Select::make('status')
+                    ->options([
+                        'show' => 'Show',
+                        'hide' => 'Hide',
+                    ])
+                    ->default('show') // Set default ke "show"
+                    ->hidden()
                 ])
                 ->hidden(fn (callable $get) => $get('creation_method') !== 'form'),
     
@@ -87,6 +97,12 @@ class BannerResource extends Resource
                 //
             ])
             ->actions([
+                Action::make('toggleStatus')
+                    ->label(fn ($record) => $record->status === 'show' ? 'Hide' : 'Show')
+                    ->color(fn ($record) => $record->status === 'show' ? 'danger' : 'success')
+                    ->action(fn ($record) => $record->update(['status' => $record->status === 'show' ? 'hide' : 'show']))
+                    ->requiresConfirmation()
+                    ->icon(fn ($record) => $record->status === 'show' ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle'),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

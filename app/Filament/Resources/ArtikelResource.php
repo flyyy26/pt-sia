@@ -8,19 +8,20 @@ use App\Models\Artikel;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Forms\Components\Grid;
+use Illuminate\Support\Str;
 use Forms\Components\Select;
 use Forms\Components\Textarea;
 use Tables\Columns\TextColumn;
 use Forms\Components\TextInput;
 use Tables\Columns\ImageColumn;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\Action;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ArtikelResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ArtikelResource\RelationManagers;
-use Filament\Forms\Components\TagsInput;
-use Illuminate\Support\Str;
 
 class ArtikelResource extends Resource
 {
@@ -47,8 +48,18 @@ class ArtikelResource extends Resource
                         Forms\Components\TextInput::make('title')->required(),
                         Forms\Components\FileUpload::make('image')
                             ->image()->required(),
-                        Forms\Components\RichEditor::make('description')->required(),
-                        Forms\Components\Select::make('kategori_id')->relationship('kategori', 'name')->required(),
+                        Forms\Components\RichEditor::make('description')
+                        ->required(),
+                        Forms\Components\Grid::make(2)
+                        ->schema([
+                            Forms\Components\Select::make('kategori_id')->relationship('kategori', 'name')->required(),
+                            Forms\Components\Select::make('status')
+                            ->options([
+                                'published' => 'Published',
+                                'draft' => 'Draft',
+                            ])
+                            ->required(),
+                            ]),
                         TagsInput::make('tags')->separator(',')->placeholder('Click Enter Per Tags'),
                     ]),
             ]);
@@ -72,6 +83,12 @@ class ArtikelResource extends Resource
                 Tables\Filters\SelectFilter::make('kategori_id')->relationship('kategori', 'name')
             ])
             ->actions([
+                Action::make('toggleStatus')
+                    ->label(fn ($record) => $record->status === 'published' ? 'Set to Draft' : 'Set to Published')
+                    ->color(fn ($record) => $record->status === 'published' ? 'danger' : 'success')
+                    ->action(fn ($record) => $record->update(['status' => $record->status === 'published' ? 'draft' : 'published']))
+                    ->requiresConfirmation()
+                    ->icon(fn ($record) => $record->status === 'published' ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle'),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
