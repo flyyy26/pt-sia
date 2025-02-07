@@ -48,8 +48,7 @@ class BannerResource extends Resource
                     Forms\Components\FileUpload::make('image')
                         ->image()
                         ->required()
-                        ->label('Banner Image')
-                        ->hidden(fn (callable $get) => $get('creation_method') !== 'form'),
+                        ->label('Background/Banner Image')
                 ]),
 
         
@@ -71,12 +70,18 @@ class BannerResource extends Resource
             // Conditionally show this textarea for "Text Coding" option
             Forms\Components\Grid::make(1)
                 ->schema([
+                    Forms\Components\Textarea::make('custom_css')
+                        ->label('Custom CSS for Banner')
+                        ->rows(10)
+                        ->helperText('Enter the CSS styling for your banner')
+                        ->hidden(fn (callable $get) => $get('creation_method') !== 'coding'),
                     Forms\Components\Textarea::make('custom_html')
                         ->label('Custom HTML for Banner')
                         ->required()
-                        ->rows(20)
+                        ->rows(10)
                         ->helperText('Enter the banner HTML code directly')
                         ->hidden(fn (callable $get) => $get('creation_method') !== 'coding'),
+                    
                 ]),
         ]);
     }

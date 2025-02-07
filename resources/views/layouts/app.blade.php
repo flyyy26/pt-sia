@@ -6,6 +6,7 @@
     <title>@yield('title', 'PT. Sistem Inovasi Akurasi')</title>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -49,10 +50,10 @@
             <div class="logo_mobile">
                 <img src="{{ asset('images/logo_mobile.png') }}" alt="Logo">
             </div>
-            <div class="layout_hamburger">
+            <!-- <div class="layout_hamburger">
                 <div class="search_mobile"><iconify-icon icon="ri:search-line"></iconify-icon></div>
                 <button class="hamburger"><img src="{{ asset('images/menu_icon.svg') }}" alt="Hamburger Menu Icon"></button>
-            </div>
+            </div> -->
             <div class="menu">
                 <nav>
                     <ul>
@@ -68,6 +69,9 @@
                         <a href="{{ url('/corporate') }}">
                             <li class="{{ Request::is('corporate') ? 'active' : '' }}">Corporate</li>
                         </a>
+                        <a href="{{ url('/corporate') }}">
+                            <li class="{{ Request::is('corporate') ? 'active' : '' }}">Contact Us</li>
+                        </a>
                     </ul>
                 </nav>
 
@@ -81,7 +85,112 @@
 
     @yield('content')
 
-    <div class="footer"></div>
+    <div class="footer">
+        <div class="footer_first">
+            <div class="footer_identity">
+                <img src="{{ asset('images/white_logo.svg') }}" alt="Logo" loading="lazy">
+                <p>PT Sistem Inovasi Akurasi (SIA) merupakan Perusahaan swasta nasional yang didirikan berdasarkan akta No. 2 pada tanggal 03 November 2023 dari kantor Notaris Yeldi Anwar, SH</p>
+                <div class="social_media_footer">
+                    <a href="">
+                        <div class="social_media_box">
+                            <iconify-icon icon="ic:round-whatsapp"></iconify-icon>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="social_media_box">
+                            <iconify-icon icon="basil:instagram-outline"></iconify-icon>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="social_media_box">
+                            <iconify-icon icon="mdi:youtube"></iconify-icon>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="social_media_box">
+                            <iconify-icon icon="ic:round-tiktok"></iconify-icon>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="menu_footer">
+                <div class="menu_footer_box">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="">Corporate</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Product</a></li>
+                    </ul>
+                </div>
+                <div class="menu_footer_box">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ url('/faq') }}">FaQs</a></li>
+                        <li><a href="{{ url('/news-articles') }}">News & Articles</a></li>
+                        <li><a href="">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer_second">
+            <ul>
+                <li><a href="">Terms & Condition</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+            <span>© 2025 PT. SISTEM AKURASI INOVASI | ID</span>
+        </div>
+        <div class="footer_third">
+            <p><span>Disclaimer:</span> Kami tidak bertanggung jawab atas konten situs pihak ketiga. Verifikasi informasi dan konsultasikan dengan profesional sebelum mengambil keputusan.</p>
+            <div class="company_data">
+                <div class="company_data_box">
+                    <iconify-icon icon="carbon:location-filled"></iconify-icon>
+                    <div class="company_data_content">
+                        <h5>Jl. Lorem ipsum dolor sit.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                    </div>
+                </div>
+                <div class="company_data_box">
+                    <iconify-icon icon="mdi:envelope"></iconify-icon>
+                    <div class="company_data_content">
+                        <h5>Email</h5>
+                        <p>info@sisteminovasi.co.id</p>
+                    </div>
+                </div>
+                <div class="company_data_box">
+                    <iconify-icon icon="ic:baseline-phone"></iconify-icon>
+                    <div class="company_data_content">
+                        <h5>Telepon</h5>
+                        <p>021-6516318</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const openPopups = document.querySelectorAll(".openPopup");
+            const closePopup = document.getElementById("closePopup");
+            const videoPopup = document.getElementById("videoPopup");
+            const videoFrame = document.getElementById("videoFrame");
+
+            openPopups.forEach(button => {
+                button.addEventListener("click", function () {
+                    const videoUrl = this.getAttribute("data-video");
+                    videoFrame.src = videoUrl;
+                    videoPopup.style.display = "flex";
+                });
+            });
+
+            closePopup.addEventListener("click", function () {
+                videoPopup.style.display = "none";
+                videoFrame.src = ""; // Reset src untuk menghentikan video
+            });
+        });
+
+    </script>
     <script>
         function openCity(evt, cityName) {
         var i, tabcontent, tablinks;
@@ -99,6 +208,64 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: true,
+            },
+            loop:true,
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".swiperArtikel", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 3,
+            spaceBetween: 30,
+        });
+    </script>
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+            const faqItems = document.querySelectorAll(".faq-item");
+
+            faqItems.forEach((item) => {
+                const question = item.querySelector(".faq-question");
+                const answer = item.querySelector(".faq-answer");
+
+                question.addEventListener("click", () => {
+                    // Tutup semua FAQ lain sebelum membuka yang diklik
+                    faqItems.forEach((i) => {
+                        const otherAnswer = i.querySelector(".faq-answer");
+                        if (i !== item) {
+                            otherAnswer.style.maxHeight = null;
+                            otherAnswer.style.opacity = 0;
+                            i.classList.remove("active");
+                        }
+                    });
+
+                    // Toggle FAQ yang diklik
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        answer.style.opacity = 0;
+                        item.classList.remove("active");
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px"; // Sesuai tinggi konten
+                        answer.style.opacity = 1;
+                        item.classList.add("active");
+                    }
+                });
+            });
+        });
+
+
     </script>
     </body>
     </html>

@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="banner_page">
-    <h1>News & Articles</h1>
+<div class="banner_page" style="background-image: url(../images/bg_artikel.png);">
+    <div class="heading_page">
+        <h1>News & Articles</h1>
+        <h2>News & Articles</h2>
+    </div>
     <p>Temukan berbagai informasi terbaru, berita terkini, <br/>dan artikel menarik seputar topik yang Anda minati.</p>
     <div class="divider_bottom_normal"></div>
 </div>
