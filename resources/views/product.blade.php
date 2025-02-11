@@ -471,16 +471,136 @@
     </div>
     <div class="section_9_wim_container">
         <div class="section_9_wim_layout">
+            <h1 class="for_number">1</h1>
+            <img src="images/operator_owner.png" alt="Operator Owner" class="operator_owner">
             <div class="section_9_wim_content">
                 <h1>Pemilik dan operator<br/> jalan raya maupun jalan tol</h1>
                 <div class="section_9_wim_box">
                     <img src="images/list_arrow.svg" alt="List Arrow">
                     <p>Informasi dari system WIM memberikan masukan penting bagi studi transportasi yang membantu  mengoptimalkan perencanaan dan desain jaringan jalan di masa depan. </p>
                 </div>
+                <div class="section_9_wim_box">
+                    <img src="images/list_arrow.svg" alt="List Arrow">
+                    <p>Informasi berat  kendaraan yang detail dan akurat merupakan masukan penting baik untuk dasar desain prasarana  jalan dan jembatan  maupun untuk perencanaan pemeliharaannya infrastruktur.</p>
+                </div>
+                <div class="section_9_wim_box">
+                    <img src="images/list_arrow.svg" alt="List Arrow">
+                    <p>Selain itu, informasi dari sistem WIM dapat digunakan secara rinci dalam analisis arus transportasi  melalui jaringan jalan dan perkembangannya dari waktu ke waktu. informasi ini juga dapat  digunakan dalam memberikan bukti untuk pengambilan kebijakan transportasi yang lebih aman.</p>
+                </div>
             </div>
             <div class="section_9_wim_image">
                 <img src="images/for_1.png" alt="Pemilik Operator">
             </div>
+        </div>
+        <div class="section_9_wim_layout section_9_wim_layout_second">
+            <h1 class="for_second">2</h1>
+            <img src="images/secure_man.png" alt="Secure Man" class="secure_man">
+            <div class="section_9_wim_image">
+                <img src="images/for_2.png" alt="Pihak Berwenang">
+            </div>
+            <div class="section_9_wim_content section_9_wim_content_right">
+                <h1>Penegakan aturan batas berat <br/>kendaraan oleh pihak berwenang</h1>
+                <div class="section_9_wim_box section_9_wim_box_right">
+                    <p>Tujuan penegakan aturan batas berat kendaraan adalah untuk mencapai kepatuhan yang lebih  baik terhadap peraturan pemuatan dan konsekuensinya adalah pengurangan kelebihan beban.</p>
+                    <img src="images/list_arrow.svg" alt="List Arrow">          
+                </div>
+                <div class="section_9_wim_box section_9_wim_box_right">
+                    <p>Dampak negatif yang ditimbulkan oleh pembiaran berat kendaraan berlebih adalah;  meningkatnya keausan infrastruktur jalan, persaingan tidak sehat dan berkurangnya keselamatan  di jalan.</p>
+                    <img src="images/list_arrow.svg" alt="List Arrow">          
+                </div>
+                <div class="section_9_wim_box section_9_wim_box_right">
+                    <p>Sistem WIM Sensor Fiber Optik menawarkan bantuan untuk Pra-Seleksi penyaringan kendaraan  yang memiliki bobot berlebih dengan WIM Kecepatan Tinggi, maupun penegakan langsung  dengan bantuan WIM kecepatan rendah.</p>
+                    <img src="images/list_arrow.svg" alt="List Arrow">          
+                </div>
+            </div>
+        </div>
+        <div class="section_9_wim_layout section_9_wim_layout_padding">
+            <h1 class="for_number">3</h1>
+            <img src="images/operator_owner.png" alt="Operator Owner" class="operator_owner">
+            <div class="section_9_wim_content">
+                <h1>Tarif tol berdasarkan<br/> berat kendaraan</h1>
+                <div class="section_9_wim_box">
+                    <img src="images/list_arrow.svg" alt="List Arrow">
+                    <p>Di negara-negara yang memiliki perhatian serius terhadap perlindungan infrastruktur,  keselamatan jalan raya dan persaingan logistik yang adil, pengguna jalan tol membayar tarif tol  berdasarkan berat sebenarnya dan/atau beban gandar kendaraannya. </p>
+                </div>
+                <div class="section_9_wim_box">
+                    <img src="images/list_arrow.svg" alt="List Arrow">
+                    <p>Hal ini sejalan dengan  prinsip ‘membayar polusi’, Dimana puncak tarif penggunaan jalan tol sebanding dengan keausan  jalan yang ditimbulkan oleh kendaraan.</p>
+                </div>
+                <div class="section_9_wim_box">
+                    <img src="images/list_arrow.svg" alt="List Arrow">
+                    <p>Sistem WIM tidak hanya menjamin harga tol yang adil namun juga dapat menghasilkan  pendapatan tambahan untuk membiayai pemeliharaan infrastruktur. Penerapan ini mencakup  penggunaan sistem WIM kecepatan rendah di gerbang tol dan WIM kecepatan tinggi dalam  kondisi aliran bebas/ free flow.</p>
+                </div>
+            </div>
+            <div class="section_9_wim_image">
+                <img src="images/for_3.png" alt="Pemilik Operator">
+            </div>
+        </div>
+        <div class="section_9_wim_layout section_9_wim_layout_second">
+            <h1 class="for_second for_four">4</h1>
+            <img src="images/secure_man.png" alt="Secure Man" class="secure_man">
+            <div class="section_9_wim_image">
+                <img src="images/for_4.png" alt="Pihak Berwenang">
+            </div>
+            <div class="section_9_wim_content section_9_wim_content_right">
+                <h1>Aplikasi di area Industri; <br/>Pelabuhan, pusat industri, <br/>pusat logistik, pertambangan</h1>
+                <div class="section_9_wim_box section_9_wim_box_right">
+                    <p>Sistem WIM dapat digunakan untuk memeriksa bobot dan beban gandar truk yang masuk  maupun meninggalkan lokasi pelabuhan, pusat industri, pusat logistik dan pertambangan.</p>
+                    <img src="images/list_arrow.svg" alt="List Arrow">          
+                </div>
+                <div class="section_9_wim_box section_9_wim_box_right">
+                    <p>Sistem WIM yang telah disertifikasi untuk aplikasi perdagangan juga dapat digunakan untuk  penentuan tarif maupun penagihan terhadap berat barang yang diangkut.</p>
+                    <img src="images/list_arrow.svg" alt="List Arrow">          
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section_10_wim">
+    <div class="section_10_wim_heading">
+        <h1>Layanan</h1>
+        <h3>Pendampingan 24 Jam</h3>
+    </div>
+    <div class="section_10_wim_img">
+        <img src="images/call_center_bubble.png" alt="Bubble Chat" class="bubble_wim">
+        <img src="images/bg_call_center.webp" class="wim_call_center" alt="Call Center">
+    </div>
+</div>
+
+<div class="section_11_wim">
+    <div class="section_11_wim_image" style="background-color:silver;">
+        <img src="" alt="">
+    </div>
+    <div class="section_11_wim_content">
+        <p>Bersama dengan platform teknologi berbasis cloud, kami dan principal kami menawarkan layanan  pemantauan real-time 24 jam yang komprehensif. </p>
+        <p>Layanan ini memungkinkan teknisi kami untuk  terus memantau berbagai data terkait pengoperasian sistem penimbangan.</p>
+    </div>
+</div>
+
+<div class="section_7 section_7_sc">
+    <div class="contact_section">
+        <a href="#">
+            <iconify-icon icon="basil:gmail-solid"></iconify-icon>
+        </a>
+        <a href="#">
+            <iconify-icon icon="solar:phone-bold"></iconify-icon>
+        </a>
+        <a href="#">
+            <iconify-icon icon="mingcute:whatsapp-fill"></iconify-icon>
+        </a>
+        <a href="#">
+            <iconify-icon icon="mingcute:instagram-fill"></iconify-icon>
+        </a>
+    </div>
+    <img src="images/bubble_chat.png" alt="" class="bubble_chat">
+    <div class="section_7_box">
+        <div class="content_section_7">
+            <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
+        </div>
+        <img src="images/women_contact.png" alt="SIA Contact" class="women_contact">
+        <div class="content_section_7">
+            <h1>Klik This</h1>
         </div>
     </div>
 </div>

@@ -63,14 +63,21 @@
                         <a href="{{ url('/product') }}">
                             <li class="{{ Request::is('product') ? 'active' : '' }}">Product</li>
                         </a>
+                        <!-- <li class="has-submenu">
+                            <div class="submenu-toggle">Product <iconify-icon icon="fluent:chevron-down-32-filled"></iconify-icon></div>
+                            <ul class="submenu">
+                                <li><a href="tentang-kormi.php">WIM Sensor</a></li>
+                                <li><a href="organisasi.php">Lasser Scanner</a></li>
+                            </ul>
+                        </li> -->
                         <a href="{{ url('/news-articles') }}">
                             <li class="{{ Request::is('news-articles*') ? 'active' : '' }}">News & Articles</li>
                         </a>
                         <a href="{{ url('/corporate') }}">
                             <li class="{{ Request::is('corporate') ? 'active' : '' }}">Corporate</li>
                         </a>
-                        <a href="{{ url('/corporate') }}">
-                            <li class="{{ Request::is('corporate') ? 'active' : '' }}">Contact Us</li>
+                        <a href="{{ url('/contact') }}">
+                            <li class="{{ Request::is('contact') ? 'active' : '' }}">Contact Us</li>
                         </a>
                     </ul>
                 </nav>
@@ -168,6 +175,48 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+            const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+            submenuToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Hapus kelas 'active' dari semua submenu kecuali yang diklik
+                    submenuToggles.forEach(t => {
+                        if (t !== this) {
+                            t.classList.remove('active');
+                        }
+                    });
+                    // Toggle kelas 'active' pada elemen yang diklik
+                    this.classList.toggle('active');
+                });
+            });
+
+            // Event listener untuk mendeteksi klik di luar submenu
+            document.addEventListener('click', function (e) {
+                // Jika klik terjadi di luar elemen dengan kelas 'submenu-toggle' dan submenu
+                submenuToggles.forEach(toggle => {
+                    const submenu = toggle.nextElementSibling;
+                    if (submenu && !toggle.contains(e.target) && !submenu.contains(e.target)) {
+                        toggle.classList.remove('active');
+                    }
+                });
+            });
+
+            document.addEventListener('scroll', function (e) {
+                // Jika klik terjadi di luar elemen dengan kelas 'submenu-toggle' dan submenu
+                submenuToggles.forEach(toggle => {
+                    const submenu = toggle.nextElementSibling;
+                    if (submenu && !toggle.contains(e.target) && !submenu.contains(e.target)) {
+                        toggle.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+    </script>
     
     <script>
         document.addEventListener("DOMContentLoaded", function () {
