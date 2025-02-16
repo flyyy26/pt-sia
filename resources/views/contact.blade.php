@@ -55,10 +55,10 @@
     <img src="images/bubble_chat.png" alt="" class="bubble_chat">
     <div class="section_7_box">
         <div class="content_section_7">
-            <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
+        <h1><span>Need Help?</span> <br/>Contact Us <p>In :<p></h1>
         </div>
         <img src="images/women_contact.png" alt="SIA Contact" class="women_contact">
-        <div class="content_section_7">
+        <div class="content_section_7 content_section_7_sc">
             <h1>Klik This</h1>
         </div>
     </div>

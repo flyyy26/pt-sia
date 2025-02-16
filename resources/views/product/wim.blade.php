@@ -342,20 +342,23 @@
             </div>
             <div class="section_6_wim_content_layout">
                 <h4>Pelat Lentur</h4>
-                <?php foreach ($teknis as $index => $teknik): ?>
-                    <div class="section_6_wim_content <?= $index % 2 === 0 ? '' : 'section_6_wim_content_white'; ?>">
-                        <div class="section_6_wim_box">
-                            <p><?= $teknik['bahan']; ?></p>
-                        </div>
-                        <div class="section_6_wim_box" style="text-align:center;">
-                            <p><?= $teknik['ukuran']; ?></p>
-                        </div>
-                        <div class="section_6_wim_box">
-                            <p><?= $teknik['type']; ?></p>
-                        </div>
+                <div class="section_6_wim_content_layout_wrapper">
+                    <div class="section_6_wim_content_layout_wrapper_box">
+                        <?php foreach ($teknis as $index => $teknik): ?>
+                            <div class="section_6_wim_content <?= $index % 2 === 0 ? '' : 'section_6_wim_content_white'; ?>">
+                                <div class="section_6_wim_box">
+                                    <p><?= $teknik['bahan']; ?></p>
+                                </div>
+                                <div class="section_6_wim_box" style="text-align:center;">
+                                    <p><?= $teknik['ukuran']; ?></p>
+                                </div>
+                                <div class="section_6_wim_box">
+                                    <p><?= $teknik['type']; ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                <?php endforeach; ?>
-
+                </div>
             </div>
         </div>
         <div class="section_6_wim_container">
@@ -364,20 +367,23 @@
             </div>
             <div class="section_6_wim_content_layout">
                 <h4>Data Logger</h4>
-                <?php foreach ($teknisSecond as $index => $teknikSecond): ?>
-                    <div class="section_6_wim_content <?= $index % 2 === 0 ? '' : 'section_6_wim_content_white'; ?>">
-                        <div class="section_6_wim_box">
-                            <p><?= $teknikSecond['bahan']; ?></p>
-                        </div>
-                        <div class="section_6_wim_box" style="text-align:center;">
-                            <p><?= $teknikSecond['ukuran']; ?></p>
-                        </div>
-                        <div class="section_6_wim_box">
-                            <p><?= $teknikSecond['type']; ?></p>
-                        </div>
+                <div class="section_6_wim_content_layout_wrapper">
+                    <div class="section_6_wim_content_layout_wrapper_box">
+                        <?php foreach ($teknisSecond as $index => $teknikSecond): ?>
+                            <div class="section_6_wim_content section_6_wim_content_sc <?= $index % 2 === 0 ? '' : 'section_6_wim_content_white'; ?>">
+                                <div class="section_6_wim_box">
+                                    <p><?= $teknikSecond['bahan']; ?></p>
+                                </div>
+                                <div class="section_6_wim_box" style="text-align:center;">
+                                    <p><?= $teknikSecond['ukuran']; ?></p>
+                                </div>
+                                <div class="section_6_wim_box">
+                                    <p><?= $teknikSecond['type']; ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                <?php endforeach; ?>
-
+                </div>
             </div>
         </div>
     </div>
@@ -402,6 +408,7 @@
         <h1>Kenapa Kami <br/><span>Berbeda?</span></h1>
     </div>
     <div class="section_8_wim_container">
+        <div class="line_mobile"></div>
         <div class="section_8_wim_layout_1">
             <img src="{{ asset('images/vector_top.png') }}" alt="Line" class="vector_top">
             <img src="{{ asset('images/vector_top_2.png') }}" alt="Line" class="vector_top_2">
@@ -596,10 +603,10 @@
     <img src="{{ asset('images/bubble_chat.png') }}" alt="" class="bubble_chat">
     <div class="section_7_box">
         <div class="content_section_7">
-            <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
+        <h1><span>Need Help?</span> <br/>Contact Us <p>In :<p></h1>
         </div>
         <img src="{{ asset('images/women_contact.png') }}" alt="SIA Contact" class="women_contact">
-        <div class="content_section_7">
+        <div class="content_section_7 content_section_7_sc">
             <h1>Klik This</h1>
         </div>
     </div>

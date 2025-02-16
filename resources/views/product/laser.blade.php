@@ -240,6 +240,132 @@
         </div>
     </div>
 </div>
+<div class="section_8_laser">
+    <div class="section_3_wim_heading section_3_wim_heading_small">
+        <h1>Data berharga yang dikumpulkan <br/>oleh <span>Laser Scanner</span></h1>
+        <p>Untuk setiap kendaraan yang melintas dalam jangkauan deteksi sensor, data berharga yang dihasilkan antara lain:</p>
+    </div>
+    <div class="section_8_laser_layout">
+        <div class="section_8_laser_box">
+            <ul>
+                <li>Transit id (jumlah transit sejak restart terakhir)</li>
+                <li>Klasifikasi kendaraan</li>
+                <li>Tinggi dalam mm</li>
+                <li>Lebar dalam mm</li>
+                <li>Panjang dalam mm</li>
+                <li>Posisi kendaraan terhadap lajur</li>
+                <li>Jalur dimana kendaraan terdeteksi</li>
+            </ul>
+        </div>
+        <div class="section_8_laser_box">
+            <ul>
+                <li>Okupansi dalam ms</li>
+                <li>Waktu  antar kendaraan dalam ms</li>
+                <li>Jeda waktu dalam ms</li>
+                <li>Alarm Kelebihan Tinggi dan Kelebihan Lebar</li>
+                <li>Status lalu lintas (normal, heavy, slow, queue)</li>
+                <li>Kecepatan(Km/jam)</li>
+            </ul>
+        </div>
+    </div>
+    <button class="open-popup">Lihat Selengkapnya</button>
+</div>
+<div class="section_9_laser">
+    <div class="section_9_laser_heading">
+        <h1><span>Untuk Siapa</span> Sistem <br/>Laser Scanner?</h1>
+        <p>Perangkat ini dimaksudkan untuk digunakan dalam deteksi lalu lintas jalan,  beberapa aplikasinya antara lain:</p>
+    </div>
+    <div class="section_9_laser_layout">
+        <div class="section_9_laser_box">
+            <div class="section_9_laser_box_overlay"></div>
+            <div class="section_9_laser_box_opclose">
+                <iconify-icon icon="majesticons:minus"></iconify-icon>
+                <iconify-icon icon="majesticons:plus"></iconify-icon>
+            </div>
+            <img src="{{ asset('images/laser_scanner_for_1.png') }}" alt="Jalan Tol" class="section_9_laser_img">
+            <div class="section_9_laser_content">
+                <h1>01</h1>
+                <div class="section_9_laser_content_heading">
+                    <h3>Jalan Tol</h3>
+                </div>
+                <ul>
+                    <li>Perkotaan</li>
+                    <li>Smart City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section_9_laser_box">
+            <div class="section_9_laser_box_overlay"></div>
+            <div class="section_9_laser_box_opclose">
+                <iconify-icon icon="majesticons:minus"></iconify-icon>
+                <iconify-icon icon="majesticons:plus"></iconify-icon>
+            </div>
+            <img src="{{ asset('images/laser_scanner_for_2.png') }}" alt="Jalan Tol" class="section_9_laser_img">
+            <div class="section_9_laser_content">
+                <h1>02</h1>
+                <div class="section_9_laser_content_heading">
+                    <h3>Pemantauan lalu lintas</h3>
+                </div>
+                <ul>
+                    <li>Perkotaan</li>
+                    <li>Smart City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section_9_laser_box">
+            <div class="section_9_laser_box_overlay"></div>
+            <div class="section_9_laser_box_opclose">
+                <iconify-icon icon="majesticons:minus"></iconify-icon>
+                <iconify-icon icon="majesticons:plus"></iconify-icon>
+            </div>
+            <img src="{{ asset('images/laser_scanner_for_3.png') }}" alt="Jalan Tol" class="section_9_laser_img">
+            <div class="section_9_laser_content">
+                <h1>03</h1>
+                <div class="section_9_laser_content_heading">
+                    <h3>Keperluan Profil kendaraan</h3>
+                </div>
+                <ul>
+                    <li>Pelabuhan</li>
+                    <li>Kawasan Industri</li>
+                    <li>Kawasan Logistik</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section_9_laser_box section_9_laser_box_active">
+            <div class="section_9_laser_box_overlay"></div>
+            <div class="section_9_laser_box_opclose">
+                <iconify-icon icon="majesticons:minus"></iconify-icon>
+                <iconify-icon icon="majesticons:plus"></iconify-icon>
+            </div>
+            <img src="{{ asset('images/laser_scanner_for_4.png') }}" alt="Jalan Tol" class="section_9_laser_img">
+            <div class="section_9_laser_content">
+                <h1>04</h1>
+                <div class="section_9_laser_content_heading">
+                    <h3>Keperluan klasifikasi kendaraan</h3>
+                </div>
+                <ul>
+                    <li>Pelabuhan</li>
+                    <li>Kawasan Industri</li>
+                    <li>Kawasan Logistik</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section_9_laser_box">
+            <div class="section_9_laser_box_overlay"></div>
+            <div class="section_9_laser_box_opclose">
+                <iconify-icon icon="majesticons:minus"></iconify-icon>
+                <iconify-icon icon="majesticons:plus"></iconify-icon>
+            </div>
+            <img src="{{ asset('images/laser_scanner_for_5.png') }}" alt="Jalan Tol" class="section_9_laser_img">
+            <div class="section_9_laser_content">
+                <h1>05</h1>
+                <div class="section_9_laser_content_heading">
+                    <h3>Pemicu untuk kamera</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="section_7 section_7_sc">
     <div class="contact_section">
@@ -268,6 +394,11 @@
     </div>
 </div>
 
+<div class="popup-container" id="popup">
+    <img src="{{ asset('images/img_data.png') }}" alt="Laser Data">
+    <button class="close-btn"><iconify-icon icon="mingcute:close-line"></iconify-icon></button>
+</div>
+
 <div id="videoPopup" class="popup">
     <div class="overlay_video_popup"></div>
     <div class="popup-content">
@@ -286,6 +417,20 @@
                 boxes.forEach(b => b.classList.remove("active_box"));
                 // Tambahkan class active_box ke elemen yang sedang dihover
                 this.classList.add("active_box");
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const boxes = document.querySelectorAll(".section_9_laser_box");
+
+        boxes.forEach(box => {
+            box.addEventListener("mouseenter", function () {
+                // Hapus class active_box dari semua elemen
+                boxes.forEach(b => b.classList.remove("section_9_laser_box_active"));
+                // Tambahkan class section_9_laser_box_active ke elemen yang sedang dihover
+                this.classList.add("section_9_laser_box_active");
             });
         });
     });

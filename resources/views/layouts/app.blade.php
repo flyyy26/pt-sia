@@ -50,26 +50,26 @@
             <div class="logo_mobile">
                 <img src="{{ asset('images/logo_mobile.png') }}" alt="Logo">
             </div>
-            <!-- <div class="layout_hamburger">
+            <div class="layout_hamburger">
                 <div class="search_mobile"><iconify-icon icon="ri:search-line"></iconify-icon></div>
                 <button class="hamburger"><img src="{{ asset('images/menu_icon.svg') }}" alt="Hamburger Menu Icon"></button>
-            </div> -->
+            </div>
             <div class="menu">
                 <nav>
                     <ul>
                         <a href="{{ url('/') }}">
                             <li class="{{ Request::is('/') ? 'active' : '' }}">Home</li>
                         </a>
-                        <a href="{{ url('/product') }}">
+                        <!-- <a href="{{ url('/product') }}">
                             <li class="{{ Request::is('product') ? 'active' : '' }}">Product</li>
-                        </a>
-                        <!-- <li class="has-submenu">
+                        </a> -->
+                        <li class="has-submenu">
                             <div class="submenu-toggle">Product <iconify-icon icon="fluent:chevron-down-32-filled"></iconify-icon></div>
                             <ul class="submenu">
-                                <li><a href="tentang-kormi.php">WIM Sensor</a></li>
-                                <li><a href="organisasi.php">Lasser Scanner</a></li>
+                                <li><a href="{{ url('/product/wim-sensor-fiber-optic') }}">WIM Sensor</a></li>
+                                <li><a href="{{ url('/product/laser-scanner') }}">Lasser Scanner</a></li>
                             </ul>
-                        </li> -->
+                        </li>
                         <a href="{{ url('/news-articles') }}">
                             <li class="{{ Request::is('news-articles*') ? 'active' : '' }}">News & Articles</li>
                         </a>
@@ -277,8 +277,22 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                },
+                768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                },
+                1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                },
+            },
         });
     </script>
     <script>
@@ -315,6 +329,31 @@
         });
 
 
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popup = document.getElementById("popup");
+            const openBtn = document.querySelector(".open-popup");
+            const closeBtn = document.querySelector(".close-btn");
+
+            // Buka popup
+            openBtn.addEventListener("click", function () {
+                popup.classList.add("active");
+            });
+
+            // Tutup popup
+            closeBtn.addEventListener("click", function () {
+                popup.classList.remove("active");
+            });
+
+            // Klik di luar popup untuk menutup
+            popup.addEventListener("click", function (e) {
+                if (e.target === this) {
+                    this.classList.remove("active");
+                }
+            });
+        });
     </script>
     </body>
     </html>

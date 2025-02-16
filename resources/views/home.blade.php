@@ -75,7 +75,6 @@
 <div class="section_2">
     <div class="section_2_tab_layout">
         <div class="section_2_tab_content">
-            
             <div id="1" class="tabcontent">
                 <div class="tabcontent_text">
                     <div class="heading_section_2">
@@ -87,7 +86,7 @@
                     <h3 class="heading_absolute">Sensor Fiber Optik</h3>
                 </div>
                 <div class="tabcontent_img">
-                    <img src="images/keunggulan_1.png" alt="Keunggulan">
+                    <img src="images/keunggulan_1.png" alt="Keunggulan"> 
                 </div>
             </div>
 
@@ -111,7 +110,7 @@
                     <div class="heading_section_2">
                         <h2>Product</h2>
                     </div>
-                    <h1>Sistem Kami <br/>Minim Perawatan</h1>
+                    <h1>Sistem Kami Minim Perawatan</h1>
                     <p>Teknologi berbasis sensor fiber optik menawarkan akurasi tinggi dalam mendeteksi dan menganalisis data, memastikan performa optimal dalam berbagai kondisi lingkungan.</p>
                     <a href="#"><button>Learn More</button></a>
                     <h3 class="heading_absolute">Minim Perawatan</h3>
@@ -267,10 +266,10 @@
             <img src="images/bubble_chat.png" alt="" class="bubble_chat">
             <div class="section_7_box">
                 <div class="content_section_7">
-                    <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
+                    <h1><span>Need Help?</span> <br/>Contact Us <p>In :<p></h1>
                 </div>
                 <img src="images/women_contact.png" alt="SIA Contact" class="women_contact">
-                <div class="content_section_7">
+                <div class="content_section_7 content_section_7_sc">
                     <h1>Klik This</h1>
                 </div>
             </div>
