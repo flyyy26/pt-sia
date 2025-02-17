@@ -20,6 +20,15 @@ class ArtikelController extends Controller
             $query->where('kategori_id', $request->kategori_id);
         }
 
+        // Filter berdasarkan pencarian di judul atau deskripsi artikel
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', '%' . $search . '%')
+                  ->orWhere('description', 'like', '%' . $search . '%');
+            });
+        }
+
         $artikels = $query->latest()->paginate(6);
 
         return view('news-articles.index', compact('artikels', 'kategoris'));

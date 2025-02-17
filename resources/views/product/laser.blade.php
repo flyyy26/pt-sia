@@ -1,17 +1,34 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta property="og:title" content="LASER SCANNER" />
+    <meta property="og:description" content="Teknologi Laser Scanner menghitung dan meng-klasifikasi kendaraan secara real time dan akurat." />
+    <meta property="og:image" content="{{ config('app.url') . '/images/scanner_icon_page.png' }}" />
+    <meta property="og:url" content="{{ config('app.url') }}/product/laser-scanner" />
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LASER SCANNER" />
+    <meta name="twitter:description" content="Teknologi Laser Scanner menghitung dan meng-klasifikasi kendaraan secara real time dan akurat." />
+    <meta name="twitter:image" content="{{ config('app.url') . '/images/scanner_icon_page.png' }}" />
+    <meta name="twitter:site" content="@username_twitter" />
+@endpush
+
 @section('content')
 
 <?php
 
     $keunggulans = [
         [
-            "icon" => "images/usb_icon.svg",
+            "icon" => "images/laser_icon_main.svg",
             "alt" => "Sensor Serat Optik",
             "description" => "Laser Scanner adalah sensor untuk pendeteksi kendaraan berbasis teknologi pemindai laser. "
         ],
         [
-            "icon" => "images/db_icon.svg",
+            "icon" => "images/camera_icon.svg",
             "alt" => "Real Time",
             "description" => "Dibandingkan dengan teknologi lain, sensor  ini mampu mendeteksi kendaraan dengan presisi dan resolusi tinggi."
         ],
@@ -100,7 +117,7 @@
     <img src="{{ asset('images/laser_product_icon.png') }}" alt="WIM Sensor Fiber Optic" class="icon_wim icon_laser_page">
     <div class="p_wim p_wim_sc">
         <img src="{{ asset('images/quote_left.svg') }}" alt="WIM Description" class="quote_left">
-        <img src="{{ asset('images/quote_right.svg') }}" alt="WIM Description" class="quote_right">
+        <img src="{{ asset('images/quote_right.svg') }}" alt="WIM Description" class="quote_right quote_right_scanner">
         <p>Teknologi Laser Scanner menghitung dan meng-klasifikasi kendaraan secara real time dan akurat.</p>
     </div>
 </div>
@@ -385,10 +402,10 @@
     <img src="{{ asset('images/bubble_chat.png') }}" alt="" class="bubble_chat">
     <div class="section_7_box">
         <div class="content_section_7">
-            <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
+        <h1><span>Need Help?</span> <br/>Contact Us <p>In :<p></h1>
         </div>
         <img src="{{ asset('images/women_contact.png') }}" alt="SIA Contact" class="women_contact">
-        <div class="content_section_7">
+        <div class="content_section_7 content_section_7_sc">
             <h1>Klik This</h1>
         </div>
     </div>

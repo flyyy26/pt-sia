@@ -1,69 +1,49 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta property="og:title" content="Home" />
+    <meta property="og:description" content="Teknologi yang kami sajikan mampu menghasilkan data real time yang berharga selama  24 jam non-stop, tahan terhadap segala kondisi cuaca serta minim perawatan" />
+    <meta property="og:image" content="{{ config('app.url') . '/images/sia_circle.png' }}" />
+    <meta property="og:url" content="{{ config('app.url') }}" />
+    <meta property="og:type" content="faq" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Home" />
+    <meta name="twitter:description" content="Teknologi yang kami sajikan mampu menghasilkan data real time yang berharga selama  24 jam non-stop, tahan terhadap segala kondisi cuaca serta minim perawatan" />
+    <meta name="twitter:image" content="{{ config('app.url') . '/images/sia_circle.png' }}" />
+    <meta name="twitter:site" content="@username_twitter" />
+@endpush
+
 @section('content')
 <div class="layout_banner">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <!-- <div class="swiper-slide">
-                <div class="section_1" style="background-image: url(../images/bg_banner.png);">
-                    <div class="banner_coding">
-                        <img src="images/sensor_banner.png" alt="Sensor Banner" class="sensor_banner">
-                        <img src="images/truck_banner.png" alt="Truck Banner" class="truck_banner">
-                        <div class="banner_content">
-                            <h3>Dinamis & Pengukuran<br/> Berat Real Time</h3>
-                            <h1>Weight In Motion</h1>
-                            <p>Sistem Penimbangan Dinamis Sensor Serat Optik untuk perlindungan jalan dan infrastruktur penting secara real time</p>
-                            <a href="#"><button>Learn More</button></a>
-                        </div>
-                        <div class="cta_banner">
-                            <div class="circle_cta_banner">
-                                <div class="circle_small_cta_banner"></div>
-                            </div>
-                            <img src="images/cta_arrow.svg" alt="Cta Arrow" class="cta_arrow">
-                            <a href="#"><button>Lihat Database</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             @foreach($banners as $banner)
             <div class="swiper-slide">
+                @if($banner->creation_method === 'coding' && !empty($banner->custom_css))
+                    <style>
+                        {!! $banner->custom_css !!}
+                    </style>
+                @endif
                 <div class="section_1" style="background-image: url({{ asset('storage/' . $banner->image) }});">
                     
                     @if($banner->creation_method === 'coding')
                         {!! $banner->custom_html !!}
                     @endif
 
-                    <!-- <div class="banner_content">
-                        <h3>Dinamis & Pengukuran<br/> Berat Real Time</h3>
-                        <h1>Weight In Motion</h1>
-                        <p>Sistem Penimbangan Dinamis Sensor Serat Optik untuk perlindungan jalan dan infrastruktur penting secara real time</p>
-                        <a href="#"><button>Learn More</button></a>
-                    </div>
-                    <div class="cta_banner">
-                        <div class="circle_cta_banner">
-                            <div class="circle_small_cta_banner"></div>
-                        </div>
-                        <img src="images/cta_arrow.svg" alt="Cta Arrow" class="cta_arrow">
-                        <a href="#"><button>Lihat Database</button></a>
-                    </div> -->
-
-                    @if($banner->creation_method === 'coding' && !empty($banner->custom_css))
-                    <style>
-                            {!! $banner->custom_css !!}
-                            </style>
+                </div>
+                <div class="section_1_mobile" style="background-image: url({{ asset('storage/' . $banner->image_mobile) }});">
+                    
+                    @if($banner->creation_method === 'coding')
+                        {!! $banner->custom_html !!}
                     @endif
 
                 </div>
             </div>
             @endforeach
-            <!-- <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div> -->
         </div>
         
         <div class="swiper-button-next"></div>
@@ -250,16 +230,16 @@
 
         <div class="section_7">
             <div class="contact_section">
-                <a href="#">
+                <a href="mailto:{{ $appSetting->email ?? 'info@sisteminovasi.co.id' }}">
                     <iconify-icon icon="basil:gmail-solid"></iconify-icon>
                 </a>
-                <a href="#">
+                <a href="tel:{{ $appSetting->phone_number ?? '021-6516318' }}" target="_blank">
                     <iconify-icon icon="solar:phone-bold"></iconify-icon>
                 </a>
-                <a href="#">
+                <a href="https://api.whatsapp.com/send?phone={{ $appSetting->whatsapp ?? 'https://api.whatsapp.com/send?phone=' }}" target="_blank">
                     <iconify-icon icon="mingcute:whatsapp-fill"></iconify-icon>
                 </a>
-                <a href="#">
+                <a href="{{ $appSetting->instagram ?? 'https://www.youtube.com/@sisteminovasiakurasi123' }}" target="_blank">
                     <iconify-icon icon="mingcute:instagram-fill"></iconify-icon>
                 </a>
             </div>

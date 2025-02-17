@@ -1,6 +1,36 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta property="og:title" content="Contact" />
+    <meta property="og:description" content="Hubungi PT. Sistem Akurasi Inovasi untuk informasi lebih lanjut" />
+    <meta property="og:image" content="{{ config('app.url') . '/images/logo.svg' }}" />
+    <meta property="og:url" content="{{ config('app.url') }}/contact" />
+    <meta property="og:type" content="contact" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact" />
+    <meta name="twitter:description" content="Hubungi PT. Sistem Akurasi Inovasi untuk informasi lebih lanjut" />
+    <meta name="twitter:image" content="{{ config('app.url') . '/images/logo.svg' }}" />
+    <meta name="twitter:site" content="@username_twitter" />
+@endpush
+
 @section('content')
+
+<style>
+    .alert p{
+        font-size:1vw;
+        color:green;
+    }
+    @media (max-width:768px) {
+        .alert p{
+            font-size:3vw;
+            color:green;
+        }
+    }
+</style>
 
 <div class="contact_page_banner">
     <h1>Contact Us</h1>
@@ -21,47 +51,58 @@
             <li><iconify-icon icon="mynaui:globe"></iconify-icon> www.sistemakurasi.com</li>
         </ul>
         <div class="form_layout">
-            <h2>Tulis pesan dan kami akan segera menghubungi anda!</h2>
-            <form action="">
+        <h2>Tulis pesan dan kami akan segera menghubungi anda!</h2>
+            <form id="contactForm" method="POST" action="/contact">
+                <!-- Token CSRF disertakan secara otomatis oleh Blade -->
+                @csrf
+
                 <div class="double_field">
-                    <input type="text" placeholder="Name" name="" id="">
-                    <input type="email" placeholder="Email" name="" id="">
+                <input type="text" placeholder="Name" name="name" required>
+                <input type="email" placeholder="Email" name="email" required>
                 </div>
                 <div class="double_field">
-                    <input type="number" placeholder="Phone" name="" id="">
-                    <input type="text" placeholder="Subject" name="" id="">
+                <input type="number" placeholder="Phone" name="phone">
+                <input type="text" placeholder="Subject" name="subject">
                 </div>
-                <textarea name="" placeholder="Comment or Messege" id=""></textarea>
-                <button>Send</button>
+                <textarea name="message" placeholder="Comment or Message" required></textarea>
+                <button type="submit">Send</button>
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
             </form>
         </div>
+
+
     </div>
 </div>
 <div class="section_7 section_7_sc">
     <div class="contact_section">
-        <a href="#">
+        <a href="mailto:{{ $appSetting->email ?? 'info@sisteminovasi.co.id' }}">
             <iconify-icon icon="basil:gmail-solid"></iconify-icon>
         </a>
-        <a href="#">
+        <a href="tel:{{ $appSetting->phone_number ?? '021-6516318' }}" target="_blank">
             <iconify-icon icon="solar:phone-bold"></iconify-icon>
         </a>
-        <a href="#">
+        <a href="https://api.whatsapp.com/send?phone={{ $appSetting->whatsapp ?? 'https://api.whatsapp.com/send?phone=' }}" target="_blank">
             <iconify-icon icon="mingcute:whatsapp-fill"></iconify-icon>
         </a>
-        <a href="#">
+        <a href="{{ $appSetting->instagram ?? 'https://www.youtube.com/@sisteminovasiakurasi123' }}" target="_blank">
             <iconify-icon icon="mingcute:instagram-fill"></iconify-icon>
         </a>
     </div>
     <img src="images/bubble_chat.png" alt="" class="bubble_chat">
     <div class="section_7_box">
         <div class="content_section_7">
-        <h1><span>Need Help?</span> <br/>Contact Us <p>In :<p></h1>
+            <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
         </div>
         <img src="images/women_contact.png" alt="SIA Contact" class="women_contact">
-        <div class="content_section_7 content_section_7_sc">
+        <div class="content_section_7">
             <h1>Klik This</h1>
         </div>
     </div>
 </div>
+
 
 @endsection

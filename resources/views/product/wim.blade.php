@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta property="og:title" content="WIM SENSOR FIBER OPTIC" />
+    <meta property="og:description" content="Sistem Penimbangan Dinamis Sensor Serat Optik untuk perlindungan jalan dan infrastruktur penting secara real time." />
+    <meta property="og:image" content="{{ config('app.url') . '/images/wim_product_icon.png' }}" />
+    <meta property="og:url" content="{{ config('app.url') }}/product/wim-sensor-fiber-optic" />
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WIM SENSOR FIBER OPTIC" />
+    <meta name="twitter:description" content="Sistem Penimbangan Dinamis Sensor Serat Optik untuk perlindungan jalan dan infrastruktur penting secara real time." />
+    <meta name="twitter:image" content="{{ config('app.url') . '/images/wim_product_icon.png' }}" />
+    <meta name="twitter:site" content="@username_twitter" />
+@endpush
+
 @section('content')
 
 <?php
@@ -259,7 +276,7 @@
         <h1>Product</h1>
         <h2>Product</h2>
     </div>
-    <p>Produk kami dibuat dengan kualitas<br/> terbaik berstandar international.</p>
+    <p>Produk kami dibuat dengan kualitas<br/> terbaik berstandar international. Mematuhi Standard WIM <br/>Eropa COST 323 dan bersertifikat OIML R134.</p>
 </div>
 <div class="section_1_wim">
     <div class="heading_wim">
@@ -417,7 +434,7 @@
                 <img src="{{ asset('images/diff_1.png') }}" alt="Re-Usable">
             </div>
             <div class="section_8_wim_content_1">
-                <h1>Re-Useable</h1>
+                <h1>Menggunakan sensor Fiber Optik</h1>
                 <p>Pelat lentur sistem WIM menggunakan sensor fiber optik dan dihubungkan ke  datalogger melalui kabel fiber optik sehingga “tidak diperlukan listrik dibawah jalan”.</p>
                 <p>Fiber Optik adalah teknologi yang memanfaatkan transmisi cahaya melalui serat kaca  tipis, WIM sensor fiber optik didasarkan pada teknologi ini, dirancang untuk  mengukur kendaraan yang bergerak menggunakan sensor optik yang sangat  sensitif.</p>
             </div>
@@ -437,7 +454,7 @@
             <h1 class="heading_number_3">3</h1>
             <img src="{{ asset('images/vector_top_4.png') }}" alt="Line" class="vector_top_4">
             <div class="section_8_wim_img_1" style="background-color:silver;">
-                <img src="" alt="Dapat digunakan kembali setelah ada pekerjaan perbaikan jalan (reuseable)">
+                <img src="{{ asset('images/diff_3.png') }}" alt="Dapat digunakan kembali setelah ada pekerjaan perbaikan jalan (reuseable)">
             </div>
             <div class="section_8_wim_content_2 section_8_wim_content_3">
                 <h1>Dapat digunakan kembali setelah ada pekerjaan perbaikan jalan (reuseable)</h1>
@@ -452,7 +469,7 @@
                 <p>Sistem WIM kami membedakan dirinya karena daya tahannya yang tinggi terhadap faktor lingkungan seperti variasi suhu, salju, banjir.</p>
             </div>
             <div class="section_8_wim_img_1" style="background-color:silver;">
-                <img src="" alt="Dapat di install di iklim apapun">
+                <img src="{{ asset('images/diff_4.png') }}" alt="Dapat di install di iklim apapun">
             </div>
         </div>
         <div class="section_8_wim_layout_3">

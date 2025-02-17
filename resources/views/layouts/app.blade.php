@@ -6,9 +6,11 @@
     <title>@yield('title', 'PT. Sistem Inovasi Akurasi')</title>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="shortcut icon" href="{{ asset('images/sia_circle.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    @stack('meta')
 </head>
 <body>
 
@@ -23,23 +25,23 @@
                     <iconify-icon icon="solar:phone-bold"></iconify-icon>
                     <div class="contact_box_header_content">
                         <h3>Call Us</h3>
-                        <p>021-6516318</p>
+                        <a href="tel:{{ $appSetting->phone_number ?? '021-6516318' }}" target="_blank"><p>{{ $appSetting->phone_number ?? '021-6516318' }}</p></a>
                     </div>
                 </div>
                 <div class="contact_box_header">
                     <iconify-icon icon="ic:round-email"></iconify-icon>
                     <div class="contact_box_header_content">
                         <h3>Email Us</h3>
-                        <p>info@sisteminovasi.co.id</p>
+                        <a href="mailto:{{ $appSetting->email ?? 'info@sisteminovasi.co.id' }}"><p> {{ $appSetting->email ?? 'info@sisteminovasi.co.id' }}</p></a>
                     </div>
                 </div>
                 <div class="contact_follow_header">
                     <span>Follow Us :</span>
                     <div class="contact_follow_header_layout">
-                        <a href="#">
+                        <a href="{{ $appSetting->youtube ?? 'https://www.youtube.com/' }}" target="_blank">
                             <iconify-icon icon="mdi:youtube"></iconify-icon>
                         </a>
-                        <a href="#">
+                        <a href="{{ $appSetting->instagram ?? 'https://www.instagram.com/' }}" target="_blank">
                             <iconify-icon icon="mingcute:instagram-fill"></iconify-icon>
                         </a>
                     </div>
@@ -52,17 +54,14 @@
             </div>
             <div class="layout_hamburger">
                 <div class="search_mobile"><iconify-icon icon="ri:search-line"></iconify-icon></div>
-                <button class="hamburger"><img src="{{ asset('images/menu_icon.svg') }}" alt="Hamburger Menu Icon"></button>
+                <button class="hamburger open-popup-mobile"><img src="{{ asset('images/menu_icon.svg') }}" alt="Hamburger Menu Icon"></button>
             </div>
-            <div class="menu">
+            <div class="menu popup-container-mobile" id="popup-mobile">
                 <nav>
                     <ul>
                         <a href="{{ url('/') }}">
                             <li class="{{ Request::is('/') ? 'active' : '' }}">Home</li>
                         </a>
-                        <!-- <a href="{{ url('/product') }}">
-                            <li class="{{ Request::is('product') ? 'active' : '' }}">Product</li>
-                        </a> -->
                         <li class="has-submenu">
                             <div class="submenu-toggle">Product <iconify-icon icon="fluent:chevron-down-32-filled"></iconify-icon></div>
                             <ul class="submenu">
@@ -80,12 +79,24 @@
                             <li class="{{ Request::is('contact') ? 'active' : '' }}">Contact Us</li>
                         </a>
                     </ul>
+                    <form action="{{ route('news-articles.index') }}" method="GET" class="search_menu_mobile">
+                        <iconify-icon icon="ri:search-line"></iconify-icon>
+                        <input type="text" name="search" placeholder="Search Here" value="{{ request('search') }}">
+                        <button type="submit" style="display: none;"></button>
+                    </form>
+                    <div class="close_mobile">
+                        <iconify-icon icon="carbon:close-filled"></iconify-icon>
+                    </div>
                 </nav>
 
-                <div class="search_menu">
+                <form action="{{ route('news-articles.index') }}" method="GET" class="search_menu">
                     <iconify-icon icon="ri:search-line"></iconify-icon>
-                    <input type="text" placeholder="Search Here">
-                </div>
+                    <input type="text" name="search" placeholder="Search Here" value="{{ request('search') }}">
+                    <button type="submit" style="display: none;"></button>
+                </form>
+
+
+                <div id="searchResults"></div>
             </div>
         </div>
     </div>
@@ -98,24 +109,19 @@
                 <img src="{{ asset('images/white_logo.svg') }}" alt="Logo" loading="lazy">
                 <p>PT Sistem Inovasi Akurasi (SIA) merupakan Perusahaan swasta nasional yang didirikan berdasarkan akta No. 2 pada tanggal 03 November 2023 dari kantor Notaris Yeldi Anwar, SH</p>
                 <div class="social_media_footer">
-                    <a href="">
+                    <a href="https://api.whatsapp.com/send?phone={{ $appSetting->whatsapp ?? 'https://api.whatsapp.com/send?phone=' }}" target="_blank">
                         <div class="social_media_box">
                             <iconify-icon icon="ic:round-whatsapp"></iconify-icon>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="{{ $appSetting->instagram ?? 'https://www.youtube.com/@sisteminovasiakurasi123' }}" target="_blank">
                         <div class="social_media_box">
                             <iconify-icon icon="basil:instagram-outline"></iconify-icon>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="{{ $appSetting->youtube ?? 'https://www.youtube.com/' }}" target="_blank">
                         <div class="social_media_box">
                             <iconify-icon icon="mdi:youtube"></iconify-icon>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="social_media_box">
-                            <iconify-icon icon="ic:round-tiktok"></iconify-icon>
                         </div>
                     </a>
                 </div>
@@ -124,9 +130,9 @@
                 <div class="menu_footer_box">
                     <h3>Navigation</h3>
                     <ul>
-                        <li><a href="">Corporate</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Product</a></li>
+                        <li><a href="{{ url('/corporate') }}">Corporate</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+                        <li><a href="{{ url('/product/wim-sensor-fiber-optic') }}">Product</a></li>
                     </ul>
                 </div>
                 <div class="menu_footer_box">
@@ -134,15 +140,15 @@
                     <ul>
                         <li><a href="{{ url('/faq') }}">FaQs</a></li>
                         <li><a href="{{ url('/news-articles') }}">News & Articles</a></li>
-                        <li><a href="">Help</a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone={{ $appSetting->whatsapp ?? 'https://api.whatsapp.com/send?phone=' }}" target="_blank">Help</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer_second">
             <ul>
-                <li><a href="">Terms & Condition</a></li>
-                <li><a href="">Privacy Policy</a></li>
+                <li><a href="{{ url('/terms-condition') }}">Terms & Condition</a></li>
+                <li><a href="{{ url('/privacy-policy') }}">Privacy Policy</a></li>
             </ul>
             <span>© 2025 PT. SISTEM AKURASI INOVASI | ID</span>
         </div>
@@ -152,8 +158,8 @@
                 <div class="company_data_box">
                     <iconify-icon icon="carbon:location-filled"></iconify-icon>
                     <div class="company_data_content">
-                        <h5>Jl. Lorem ipsum dolor sit.</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                        <h5>Sistem Akurasi Inovasi</h5>
+                        <p>Komp Griya Inti Sentosa Jl. Griya Agung Blok 0 88-89, Sunter Jakarta.</p>
                     </div>
                 </div>
                 <div class="company_data_box">
@@ -175,6 +181,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
     <script>
        document.addEventListener('DOMContentLoaded', function () {
@@ -336,6 +343,30 @@
             const popup = document.getElementById("popup");
             const openBtn = document.querySelector(".open-popup");
             const closeBtn = document.querySelector(".close-btn");
+
+            // Buka popup
+            openBtn.addEventListener("click", function () {
+                popup.classList.add("active");
+            });
+
+            // Tutup popup
+            closeBtn.addEventListener("click", function () {
+                popup.classList.remove("active");
+            });
+
+            // Klik di luar popup untuk menutup
+            popup.addEventListener("click", function (e) {
+                if (e.target === this) {
+                    this.classList.remove("active");
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popup = document.getElementById("popup-mobile");
+            const openBtn = document.querySelector(".open-popup-mobile");
+            const closeBtn = document.querySelector(".close_mobile");
 
             // Buka popup
             openBtn.addEventListener("click", function () {

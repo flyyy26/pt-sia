@@ -18,7 +18,7 @@ class FaQsResource extends Resource
 {
     protected static ?string $model = FaQs::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
 
     public static function getPluralLabel(): ?string
     {

@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta property="og:title" content="News & Articles" />
+    <meta property="og:description" content="Temukan berbagai informasi terbaru, berita terkini, dan artikel menarik seputar topik yang Anda minati." />
+    <meta property="og:image" content="{{ config('app.url') . '/images/bg_artikel.png' }}" />
+    <meta property="og:url" content="{{ config('app.url') }}/news-articles" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="News & Articles" />
+    <meta name="twitter:description" content="Temukan berbagai informasi terbaru, berita terkini, dan artikel menarik seputar topik yang Anda minati." />
+    <meta name="twitter:image" content="{{ config('app.url') . '/images/bg_artikel.png' }}" />
+    <meta name="twitter:site" content="@username_twitter" />
+@endpush
+
 @section('content')
 <div class="banner_page" style="background-image: url(../images/bg_artikel.png);">
     <div class="heading_page">
@@ -9,7 +26,7 @@
     <p>Temukan berbagai informasi terbaru, berita terkini, <br/>dan artikel menarik seputar topik yang Anda minati.</p>
     <div class="divider_bottom_normal"></div>
 </div>
-<div class="container_page">
+<div class="container_page" id="container_page">
     <div class="artikel_heading">
         <h1>Daftar Artikel</h1>
 
@@ -85,4 +102,39 @@
     @endif
 
 </div>
+<div class="section_7 section_7_sc">
+        <div class="contact_section">
+            <a href="mailto:{{ $appSetting->email ?? 'info@sisteminovasi.co.id' }}">
+                <iconify-icon icon="basil:gmail-solid"></iconify-icon>
+            </a>
+            <a href="tel:{{ $appSetting->phone_number ?? '021-6516318' }}" target="_blank">
+                <iconify-icon icon="solar:phone-bold"></iconify-icon>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone={{ $appSetting->whatsapp ?? 'https://api.whatsapp.com/send?phone=' }}" target="_blank">
+                <iconify-icon icon="mingcute:whatsapp-fill"></iconify-icon>
+            </a>
+            <a href="{{ $appSetting->instagram ?? 'https://www.youtube.com/@sisteminovasiakurasi123' }}" target="_blank">
+                <iconify-icon icon="mingcute:instagram-fill"></iconify-icon>
+            </a>
+        </div>
+        <img src="images/bubble_chat.png" alt="" class="bubble_chat">
+        <div class="section_7_box">
+            <div class="content_section_7">
+                <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
+            </div>
+            <img src="images/women_contact.png" alt="SIA Contact" class="women_contact">
+            <div class="content_section_7">
+                <h1>Klik This</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var element = document.getElementById("container_page");
+        if(element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+    </script>
 @endsection

@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta property="og:title" content="Corporate" />
+    <meta property="og:description" content="PT Sistem Inovasi Akurasi (SIA) merupakan Perusahaan swasta nasional yang didirikan  berdasarkan akta No. 2 pada tanggal 03 November 2023 dari kantor Notaris Yeldi Anwar,  SH." />
+    <meta property="og:image" content="{{ config('app.url') . '/images/corporate_img_banner.png' }}" />
+    <meta property="og:url" content="{{ config('app.url') }}/corporate" />
+    <meta property="og:type" content="corporate" />
+    <meta property="og:site_name" content="{{ config('app.name') }}" />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Corporate" />
+    <meta name="twitter:description" content="PT Sistem Inovasi Akurasi (SIA) merupakan Perusahaan swasta nasional yang didirikan  berdasarkan akta No. 2 pada tanggal 03 November 2023 dari kantor Notaris Yeldi Anwar,  SH." />
+    <meta name="twitter:image" content="{{ config('app.url') . '/images/corporate_img_banner.png' }}" />
+    <meta name="twitter:site" content="@username_twitter" />
+@endpush
+
 @section('content')
 
     <div class="section_1_corpo">
@@ -149,26 +166,26 @@
     </div>
     <div class="section_7 section_7_sc">
         <div class="contact_section">
-            <a href="#">
+            <a href="mailto:{{ $appSetting->email ?? 'info@sisteminovasi.co.id' }}">
                 <iconify-icon icon="basil:gmail-solid"></iconify-icon>
             </a>
-            <a href="#">
+            <a href="tel:{{ $appSetting->phone_number ?? '021-6516318' }}" target="_blank">
                 <iconify-icon icon="solar:phone-bold"></iconify-icon>
             </a>
-            <a href="#">
+            <a href="https://api.whatsapp.com/send?phone={{ $appSetting->whatsapp ?? 'https://api.whatsapp.com/send?phone=' }}" target="_blank">
                 <iconify-icon icon="mingcute:whatsapp-fill"></iconify-icon>
             </a>
-            <a href="#">
+            <a href="{{ $appSetting->instagram ?? 'https://www.youtube.com/@sisteminovasiakurasi123' }}" target="_blank">
                 <iconify-icon icon="mingcute:instagram-fill"></iconify-icon>
             </a>
         </div>
         <img src="images/bubble_chat.png" alt="" class="bubble_chat">
         <div class="section_7_box">
             <div class="content_section_7">
-            <h1><span>Need Help?</span> <br/>Contact Us <p>In :<p></h1>
+                <h1><span>Need Help?</span> <br/>Contact Us In :</h1>
             </div>
             <img src="images/women_contact.png" alt="SIA Contact" class="women_contact">
-            <div class="content_section_7 content_section_7_sc">
+            <div class="content_section_7">
                 <h1>Klik This</h1>
             </div>
         </div>

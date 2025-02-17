@@ -8,7 +8,7 @@ use App\Models\Banner;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Forms\Components\Select;
-use Tables\Columns\TextColumn;
+use Tables\Columns\TextColumn; 
 use Forms\Components\TextInput;
 use Tables\Columns\ImageColumn;
 use Filament\Resources\Resource;
@@ -25,7 +25,7 @@ class BannerResource extends Resource
 {
     protected static ?string $model = Banner::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form
     {
@@ -43,12 +43,16 @@ class BannerResource extends Resource
                 ->label('Choose the Banner Creation Method'),
     
             // Grid for uploading image and form fields
-            Forms\Components\Grid::make(1)
+            Forms\Components\Grid::make(2)
                 ->schema([
                     Forms\Components\FileUpload::make('image')
                         ->image()
                         ->required()
-                        ->label('Background/Banner Image')
+                        ->label('Background/Banner Image'),
+                    Forms\Components\FileUpload::make('image_mobile')
+                        ->image()
+                        ->required()
+                        ->label('Background/Banner Image (Mobile). Suggested : 590px x 1277px')
                 ]),
 
         
@@ -91,6 +95,10 @@ class BannerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
+                ->disk('public') // Pastikan disk penyimpanan benar
+                ->width(100) // Sesuaikan ukuran gambar
+                ->height(100), 
+                Tables\Columns\ImageColumn::make('image_mobile')
                 ->disk('public') // Pastikan disk penyimpanan benar
                 ->width(100) // Sesuaikan ukuran gambar
                 ->height(100), 
